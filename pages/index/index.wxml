@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称    </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view>
+<radio-group class="radio-group" >
+  <label class="radio" wx:for="{{demoData}}">
+    <radio value='testRadio' data-aa='{{index}}' bindtap="radioChange">{{index}}.{{item.text}}</radio>
+  </label>
+</radio-group>
+ 
+  <map show-location  longitude="{{jd}}" latitude="{{wd}}"></map>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class='wx_dialog_container'> 
+    <view class='wx-dialog'> 
+      <view class='wx-dialog-title'>{{title}}</view>
+        <view class='wx-dialog-content'>{{content}}</view>
+    </view> 
+    <button bindtap='location' type='primary' bindtap="modalcnt">获取经纬度</button> 
+    </view>
+</view>
+
